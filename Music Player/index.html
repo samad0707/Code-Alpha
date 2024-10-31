@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ 
+
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="musicplayer">
+            <nav>
+                <div class="circle">
+                    <span class="material-symbols-outlined">
+                        arrow_forward_ios
+                    </span>
+
+                </div>
+
+                </span>
+                <div class="circle">
+                    <span class="material-symbols-outlined">
+                        menu
+                </div>
+            </nav>
+            <img src="images (1).png" >
+            <h1>Kaun Talha</h1>
+            <p>Talha Anjum</p>
+
+            <audio controls id="song">
+                <source src="Talha Anjum - Kaun Talha  Prod. by Umair (Official Audio).mp3" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" id="progress">
+
+            <div class="controls">
+
+                <div> <i class="fas fa-backward"></i></div>
+                <div onclick="playPause()"> <i class="fas fa-play" id="ctrlicon"></i></div>
+                <div><i class="fas fa-forward"></i></div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        let progress = document.getElementById("progress");
+        let song = document.getElementById("song");
+        let ctrlIcon = document.getElementById("ctrlicon");
+    
+        song.onloadeddata = function () {
+            progress.max = song.duration;
+            progress.value = song.currentTime;
+        }
+    
+        function playPause() {
+          
+            if (ctrlIcon.classList.contains("fa-pause")) {
+                song.pause();
+                ctrlIcon.classList.remove("fa-pause");
+                ctrlIcon.classList.add("fa-play");
+            } else {
+                song.play();
+                ctrlIcon.classList.remove("fa-play");
+                ctrlIcon.classList.add("fa-pause");
+            }
+        }
+    </script>
+    
+
+</body>
+
+</html>
